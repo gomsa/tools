@@ -1,7 +1,7 @@
 package client
 
 import (
-	"os"
+	context "golang.org/x/net/context"
 
 	"github.com/micro/go-micro/cmd"
 	"github.com/micro/go-micro/broker"
@@ -19,11 +19,6 @@ import (
 
 )
 
-type svrClient struct {
-	c           client.Client
-	serviceName string
-}
-
 func init() {
 	// setup broker/client/server
 	broker.DefaultBroker = bkr.NewBroker()
@@ -31,10 +26,14 @@ func init() {
 	server.DefaultServer = srv.NewServer()
 	cmd.Init()
 }
-// NewClient 新建客户连接
-func NewClient(serviceName string) OrderPayClient {
-	return &svrClient{
-		c:           client.DefaultClient(),
-		serviceName: serviceName,
+
+// Request 请求
+func Request(ctx context.Context, serviceName string, method string, in *interface{}, out *interface{}, opts ...client.CallOption) error {
+	c := client.DefaultClient
+	req := c.NewRequest(serviceName, method, in)
+	err := c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return  err
 	}
+	return  nil
 }
