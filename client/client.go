@@ -28,10 +28,10 @@ func init() {
 }
 
 // Request 请求
-func Request(ctx context.Context, serviceName string, method string, in *interface{}, out *interface{}, opts ...client.CallOption) error {
+func Request(ctx context.Context, serviceName string, method string, in *interface{}, out *interface{}) error {
 	c := client.DefaultClient
 	req := c.NewRequest(serviceName, method, in)
-	err := c.Call(ctx, req, out, opts...)
+	err := c.Call(ctx, req, out)
 	if err != nil {
 		return  err
 	}
