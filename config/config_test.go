@@ -6,16 +6,19 @@ import (
 )
 
 func TestConfig(t *testing.T) {
-	LoadFile("config.yaml")
-	Conf := Get()
+	conf := &Config{}
+	conf.LoadFile("config.yaml")
+	App := conf.GetApp()
+	Version := conf.GetVersion()
+	Permissions := conf.GetPermissions()
 	fmt.Println(
-		Conf.App,
-		Conf.Version,
-		Conf.Permissions[0].Service,
-		Conf.Permissions[0].Method,
-		Conf.Permissions[0].Auth,
-		Conf.Permissions[0].Policy,
-		Conf.Permissions[0].DisplayName,
-		Conf.Permissions[0].Description,
+		App,
+		Version,
+		Permissions[0].Service,
+		Permissions[0].Method,
+		Permissions[0].Auth,
+		Permissions[0].Policy,
+		Permissions[0].DisplayName,
+		Permissions[0].Description,
 	)
 }

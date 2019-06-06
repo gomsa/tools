@@ -25,9 +25,10 @@ type Config struct {
 }
 
 // LoadFile 加载文件
-func (c *Config) LoadFile(file string) {
+func (c *Config) LoadFile(file string) *Config {
 	config.LoadFile(file)
 	config.Scan(&Conf)
+	return c
 }
 
 // GetApp 获取配置
