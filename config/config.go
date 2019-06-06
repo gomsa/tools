@@ -1,7 +1,7 @@
 package config
 
 import (
-	config "github.com/micro/go-config"
+	"github.com/micro/go-micro/config"
 )
 
 // Permission 权限
@@ -10,12 +10,14 @@ type Permission struct {
 	Method      string `json:"method"`
 	Auth        bool   `json:"auth"`
 	Policy      bool   `json:"policy"`
-	Name        string `json:"name"`
+	DisplayName string `json:"display_name"`
 	Description string `json:"description"`
 }
 
 // Config 配置结构
 type Config struct {
+	App         string
+	Version     string
 	Permissions []Permission `json:"permissions"`
 }
 
