@@ -4,6 +4,9 @@ import (
 	"github.com/micro/go-micro/config"
 )
 
+// Conf 配置
+var Conf Config
+
 // Permission 权限
 type Permission struct {
 	Service     string `json:"service"`
@@ -21,10 +24,23 @@ type Config struct {
 	Permissions []Permission `json:"permissions"`
 }
 
-// Conf 配置返回
-var Conf Config
-
-func init() {
-	config.LoadFile("config.yaml")
+// LoadFile 加载文件
+func (c *Config) LoadFile(file string) {
+	config.LoadFile(file)
 	config.Scan(&Conf)
+}
+
+// GetApp 获取配置
+func (c *Config) GetApp() string {
+	return Conf.App
+}
+
+// GetVersion 获取配置
+func (c *Config) GetVersion() string {
+	return Conf.Version
+}
+
+// GetPermissions 获取配置
+func (c *Config) GetPermissions() []Permission {
+	return Conf.Permissions
 }

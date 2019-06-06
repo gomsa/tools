@@ -6,6 +6,8 @@ import (
 )
 
 func TestConfig(t *testing.T) {
+	LoadFile("config.yaml")
+	Conf := Get()
 	fmt.Println(
 		Conf.App,
 		Conf.Version,
