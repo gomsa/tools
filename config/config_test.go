@@ -13,7 +13,7 @@ func TestConfig(t *testing.T) {
 		Conf.Permissions[0].Method,
 		Conf.Permissions[0].Auth,
 		Conf.Permissions[0].Policy,
-		Conf.Permissions[0].DisplayName,
+		Conf.Permissions[0].Name,
 		Conf.Permissions[0].Description,
 	)
 }
