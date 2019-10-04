@@ -3,14 +3,10 @@ package client
 import (
 	"context"
 
-	"github.com/micro/go-micro/broker"
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/config/cmd"
-	"github.com/micro/go-micro/server"
 
-	bkr "github.com/micro/go-micro/broker/grpc"
 	cli "github.com/micro/go-micro/client/grpc"
-	srv "github.com/micro/go-micro/server/grpc"
 )
 
 var (
@@ -19,9 +15,7 @@ var (
 )
 
 func init() {
-	broker.DefaultBroker = bkr.NewBroker()
 	client.DefaultClient = cli.NewClient()
-	server.DefaultServer = srv.NewServer()
 	cmd.Init()
 
 	DefaultClient = client.DefaultClient
