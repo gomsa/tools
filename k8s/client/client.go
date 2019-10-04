@@ -7,9 +7,10 @@ import (
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/config/cmd"
 	"github.com/micro/go-micro/server"
-	bkr "github.com/micro/go-plugins/broker/grpc"
-	cli "github.com/micro/go-plugins/client/grpc"
-	srv "github.com/micro/go-plugins/server/grpc"
+
+	bkr "github.com/micro/go-micro/broker/grpc"
+	cli "github.com/micro/go-micro/client/grpc"
+	srv "github.com/micro/go-micro/server/grpc"
 )
 
 var (
