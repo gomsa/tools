@@ -16,6 +16,7 @@ var (
 
 func init() {
 	client.DefaultClient = cli.NewClient()
+
 	cmd.Init()
 
 	DefaultClient = client.DefaultClient
