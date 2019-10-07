@@ -3,7 +3,7 @@
 ```
 import (
 	"context"
-	client "github.com/gomsa/tools/k8s/client"
+	client "github.com/gomsa/tools/client"
 )
 
 func main() {
