@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-    err = client.Call(ctx, ServiceName, "Service.Method", req, res)
+    err = client.Call(context.TODO(), ServiceName, "Service.Method", req, res)
     if err != nil {
         return err
     }
