@@ -3,11 +3,13 @@
 ```
 import (
 	"context"
-
 	client "github.com/gomsa/tools/k8s/client"
 )
-err = client.Call(ctx, ServiceName, "Service.Method", req, res)
-if err != nil {
-	return err
+
+func main() {
+    err = client.Call(ctx, ServiceName, "Service.Method", req, res)
+    if err != nil {
+        return err
+    }
 }
 ```
